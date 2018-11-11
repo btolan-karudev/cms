@@ -20,29 +20,29 @@
     $query = "SELECT * FROM posts";
     $select_posts = mysqli_query($connection, $query);
     while ($row = mysqli_fetch_assoc($select_posts)) {
-    $post_title = $row['post_title'];
-    $post_id = $row['post_id'];
-    $post_author = $row['post_author'];
-    $post_category_id = $row['post_category_id'];
-    $post_status = $row['post_status'];
-    $post_comment_count = $row['post_comment_count'];
-    $post_date = $row['post_date'];
-    $post_image = $row['post_image'];
-    $post_tags = $row['post_tags'];
+        $post_title = $row['post_title'];
+        $post_id = $row['post_id'];
+        $post_author = $row['post_author'];
+        $post_category_id = $row['post_category_id'];
+        $post_status = $row['post_status'];
+        $post_comment_count = $row['post_comment_count'];
+        $post_date = $row['post_date'];
+        $post_image = $row['post_image'];
+        $post_tags = $row['post_tags'];
 
-    echo "<tr>";
-    echo "<td>{$post_id}</td>";
-    echo "<td>{$post_author}</td>";
-    echo "<td>{$post_title}</td>";
+        echo "<tr>";
+        echo "<td>{$post_id}</td>";
+        echo "<td>{$post_author}</td>";
+        echo "<td>{$post_title}</td>";
 
-    $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
-    $select_categories_id = mysqli_query($connection, $query);
-    while ($row = mysqli_fetch_assoc($select_categories_id)) {
-        $cat_title = $row['cat_title'];
-        $cat_id = $row['cat_id'];
+        $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
+        $select_categories_id = mysqli_query($connection, $query);
+        while ($row = mysqli_fetch_assoc($select_categories_id)) {
+            $cat_title = $row['cat_title'];
+            $cat_id = $row['cat_id'];
 
-        echo "<td>{$cat_title}</td>";
-    }
+            echo "<td>{$cat_title}</td>";
+        }
 
         echo "<td>{$post_status}</td>";
         echo "<td><img width='100px' src='images/$post_image' alt=''></td>";
